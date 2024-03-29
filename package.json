@@ -1,0 +1,78 @@
+{
+  "name": "boilerplate-next-app-router",
+  "version": "1.0.0",
+  "private": true,
+  "author": {
+    "email": "devmauriciogirardi@gmail.com",
+    "name": "Mauricio Girardi"
+  },
+  "description": "This is a boilerplate.",
+  "packageManager": "pnpm@8.2.0",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=7"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky install",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:watch:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "coverage": "open coverage/index.html",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "generate": "npx plop --plopfile generators/plopfile.js"
+  },
+  "dependencies": {
+    "@t3-oss/env-nextjs": "^0.8.0",
+    "clsx": "^2.1.0",
+    "next": "14.1.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/addon-onboarding": "^1.0.11",
+
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/nextjs": "^7.6.17",
+
+    "@storybook/react": "^7.6.17",
+    "@storybook/test": "^7.6.17",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^1.3.1",
+    "autoprefixer": "^10.4.17",
+    "cypress": "^13.6.6",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-simple-import-sort": "^12.0.0",
+    "eslint-plugin-storybook": "^0.8.0",
+    "husky": "^9.0.11",
+    "jsdom": "^24.0.0",
+    "lint-staged": "^15.2.2",
+    "plop": "^4.0.1",
+    "postcss": "^8",
+    "prettier": "3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "storybook": "^7.6.17",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5",
+    "vitest": "^1.3.1"
+  }
+}
