@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
-import { Main } from '@/components/main'
+import { Header } from '@/components/header'
 
 export const metadata: Metadata = {
   title: 'Home'
@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex h-screen flex-col items-center">
-      <Main />
-    </div>
+    <section className="">
+      <Header />
+    </section>
   )
 }

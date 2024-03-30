@@ -3,7 +3,6 @@ import { z } from 'zod'
 
 export const env = createEnv({
   server: {
-    APP_URL: z.string().url(),
     SITE_NAME: z.string(),
     NODE_ENV: z
       .enum(['development', 'test', 'production'])
@@ -16,7 +15,6 @@ export const env = createEnv({
 
   runtimeEnv: {
     NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
-    APP_URL: process.env.APP_URL,
     NODE_ENV: process.env.NODE_ENV,
     SITE_NAME: process.env.SITE_NAME
   }

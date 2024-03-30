@@ -19,11 +19,6 @@ module.exports = (
       },
       {
         type: 'add',
-        path: '../src/components/{{kebabCase name}}/{{kebabCase name}}.stories.tsx',
-        templateFile: 'templates/stories.tsx.hbs'
-      },
-      {
-        type: 'add',
         path: '../src/components/{{kebabCase name}}/{{kebabCase name}}.test.tsx',
         templateFile: 'templates/test.tsx.hbs'
       }

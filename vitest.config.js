@@ -17,11 +17,7 @@ export default defineConfig({
     coverage: {
       reporter: ['text', 'json', 'html'],
       include: ['src/**/*.test.{ts,tsx}', 'src/components/**/*.{ts,tsx}'],
-      exclude: [
-        'src/@types/**',
-        'src/app/**',
-        'src/components/**/*.stories.tsx'
-      ]
+      exclude: ['src/@types/**', 'src/app/**']
     },
     watch: {
       exclude: [
