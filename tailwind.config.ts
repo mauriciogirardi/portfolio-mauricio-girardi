@@ -67,18 +67,36 @@ const config = {
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' }
+        },
+        'spin-reverse': {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(-360deg)' }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'spin-slow': 'spin 40s linear infinite',
+        'spin-slow-reverse': 'spin-reverse 40s linear infinite'
       },
       fontFamily: {
         sans: ['var(--font-poppins)', ...fontFamily.sans]
+      },
+      backgroundImage: {
+        home: "url('/images/bg-home.png')",
+        projects: "url('/images/bg-project.png')",
+        about: "url('/images/bg-about.png')",
+        contact: "url('/images/bg-contact.png')",
+        'firefly-radial':
+          'radial-gradient(50% 50% at 50% 50%, rgba(253, 255, 80, 0.5) 0%, rgba(217, 217, 217, 0) 100%)'
+      },
+      boxShadow: {
+        'glass-inset': 'inset 0 17px 5px -9px rgba(254,254,91,0.05)',
+        'glass-sm': '5px 5px 20px 0px rgba(254,254,91,0.3)'
       }
     }
   },
-  plugins: [require('tailwindcss-animate')]
+  plugins: [require('tailwindcss-animate'), require('tailwind-scrollbar')]
 } satisfies Config
 
 export default config
