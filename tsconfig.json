@@ -6,9 +6,6 @@
       "dom.iterable",
       "esnext"
     ],
-    "types": [
-      "vitest/globals",
-    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -33,7 +30,6 @@
     }
   },
   "include": [
-    "./.test/setup.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
