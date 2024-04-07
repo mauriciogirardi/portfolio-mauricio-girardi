@@ -74,3 +74,30 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+
+  .custom-bg {
+    @apply border border-solid border-amber-300/40 bg-background/20 shadow-glass-inset backdrop-blur-[6px] hover:shadow-glass-sm;
+  }
+
+  .light-text {
+    @apply [text-shadow:_0_0_10px_#fff_,_0_0_20px_#fff_,_0_0_40px_#fff_,_0_0_80px_#fff_,_0_0_120px_#fff,_0_0_160px_#fff];
+  }
+
+  .container-bg {
+    @apply relative h-screen overflow-y-auto bg-cover bg-center bg-no-repeat after:fixed after:left-0 after:top-0 after:z-10 after:h-screen after:w-full after:bg-black/60 after:content-[''];
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100px, 100px);
+  }
+}

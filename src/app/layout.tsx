@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 
+import { FireFilesBackground } from '@/components/fire-files-background'
 import { ThemeProvider } from '@/contexts/theme-provider'
 import { env } from '@/env'
 
@@ -43,14 +44,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={poppins.variable} suppressHydrationWarning>
-      <body className="container min-h-screen antialiased">
+      <body className="min-h-screen bg-black antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}
+          <FireFilesBackground />
         </ThemeProvider>
       </body>
     </html>
