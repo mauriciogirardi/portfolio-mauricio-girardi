@@ -51,7 +51,7 @@ export function AboutDetails() {
             Courses
           </h2>
 
-          <div className="h-[350px] space-y-3 overflow-y-auto scrollbar-thin lg:h-auto">
+          <div className="h-auto space-y-3 scrollbar-thin lg:h-[350px] lg:overflow-y-auto">
             {courses.map(({ course, date, title }) => (
               <div className="flex justify-between" key={course}>
                 <div className="flex gap-3">
