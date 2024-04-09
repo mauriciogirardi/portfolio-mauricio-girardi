@@ -1,9 +1,13 @@
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 
 import { AboutDetails } from '@/components/about-details'
 import { Header } from '@/components/header'
-import Hat from '@/components/models/hat'
 import { RenderModel } from '@/components/render-modal'
+
+const Hat = dynamic(() => import('@/components/models/hat'), {
+  ssr: false
+})
 
 export const metadata: Metadata = {
   title: 'About',

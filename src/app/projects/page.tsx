@@ -1,9 +1,13 @@
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 
 import { Header } from '@/components/header'
-import Staff from '@/components/models/staff'
 import { ProjectList } from '@/components/project-list'
 import { RenderModel } from '@/components/render-modal'
+
+const Staff = dynamic(() => import('@/components/models/staff'), {
+  ssr: false
+})
 
 export const metadata: Metadata = {
   title: 'Projects'
@@ -17,7 +21,7 @@ export default function ProjectPage() {
 
         <div className=" flex flex-col items-center justify-center">
           <ProjectList />
-          <div className="fixed left-20 top-20 -z-20 flex h-screen items-center justify-center lg:-left-16 2xl:left-20">
+          <div className="fixed left-10 top-20 -z-20 flex h-screen items-center justify-center lg:-left-16 2xl:left-20">
             <RenderModel>
               <Staff />
             </RenderModel>

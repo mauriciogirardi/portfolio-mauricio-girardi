@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 import { useScreenSize } from '@/hooks/useScreenSize'
@@ -15,6 +16,13 @@ type NavButtonProps = {
   newTab: boolean
 }
 
+const item = {
+  hidden: { scale: 0 },
+  show: { scale: 1 }
+}
+
+const NavLink = motion(Link)
+
 export function NavButton({ icon, label, link, newTab, x, y }: NavButtonProps) {
   const sizeScreen = useScreenSize()
 
@@ -28,10 +36,14 @@ export function NavButton({ icon, label, link, newTab, x, y }: NavButtonProps) {
               transform: `translate(${x}, ${y})`
             }}
           >
-            <Link
+            <NavLink
               href={link}
               className="custom-bg flex items-center justify-center rounded-full"
               target={newTab ? '_blank' : '_self'}
+              aria-label={label}
+              prefetch={false}
+              scroll={false}
+              variants={item}
             >
               <span className="group-hover:pause relative size-14 animate-spin-slow-reverse p-4 hover:text-amber-300/60">
                 <Icon name={icon} className="h-auto w-full" strokeWidth={1.5} />
@@ -40,14 +52,18 @@ export function NavButton({ icon, label, link, newTab, x, y }: NavButtonProps) {
                   {label}
                 </span>
               </span>
-            </Link>
+            </NavLink>
           </div>
         ) : (
-          <div className="z-50 cursor-pointer">
-            <Link
+          <div className="z-50 cursor-pointer md:hidden">
+            <NavLink
               href={link}
               className="custom-bg flex items-center justify-center rounded-full"
               target={newTab ? '_blank' : '_self'}
+              aria-label={label}
+              prefetch={false}
+              scroll={false}
+              variants={item}
             >
               <span className="relative size-11 p-3 hover:text-amber-300/60">
                 <Icon name={icon} className="h-auto w-full" strokeWidth={1.5} />
@@ -56,7 +72,7 @@ export function NavButton({ icon, label, link, newTab, x, y }: NavButtonProps) {
                   {label}
                 </span>
               </span>
-            </Link>
+            </NavLink>
           </div>
         )
       }

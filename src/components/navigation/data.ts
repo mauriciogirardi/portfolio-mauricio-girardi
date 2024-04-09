@@ -14,13 +14,13 @@ export const btnList: BtnListProps[] = [
   { label: 'Contact', link: '/contact', icon: 'contact', newTab: false },
   {
     label: 'Github',
-    link: '/https:www.github.com/mauriciogirardi',
+    link: 'https://www.github.com/mauriciogirardi',
     icon: 'github',
     newTab: true
   },
   {
     label: 'LinkedIn',
-    link: '/https:www.linkedin.com/in/mauricio-girardi',
+    link: 'https://www.linkedin.com/in/mauricio-girardi',
     icon: 'linkedin',
     newTab: true
   },

@@ -15,7 +15,7 @@ export function RenderModel({ children, className }: RenderModelProps) {
   return (
     <Canvas className={cn('relative -z-10 h-screen w-screen', className)}>
       <Suspense fallback={null}>{children}</Suspense>
-      <Environment preset="sunset" />
+      <Environment preset="dawn" />
     </Canvas>
   )
 }

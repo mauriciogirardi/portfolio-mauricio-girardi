@@ -1,9 +1,26 @@
+import { motion } from 'framer-motion'
+
 import { Icon } from '../icon'
 import { projectsCompanies } from './data'
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 1.5
+    }
+  }
+}
 
 export function Companies() {
   return (
-    <div className="my-6 space-y-4">
+    <motion.div
+      variants={container}
+      initial="hidden"
+      animate="show"
+      className="my-6 space-y-4"
+    >
       {projectsCompanies.map((item) => {
         return (
           <div
@@ -61,6 +78,6 @@ export function Companies() {
           </div>
         )
       })}
-    </div>
+    </motion.div>
   )
 }

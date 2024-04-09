@@ -1,10 +1,22 @@
 'use client'
 
+import { motion } from 'framer-motion'
+
 import { useScreenSize } from '@/hooks/useScreenSize'
 
 import { Responsive } from '../responsive'
 import { btnList } from './data'
 import { NavButton } from './nav-button'
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3
+    }
+  }
+}
 
 export function Navigation() {
   const size = useScreenSize()
@@ -18,7 +30,12 @@ export function Navigation() {
       <Responsive>
         {({ size }) =>
           size && size >= 768 ? (
-            <div className="hover:pause group relative flex w-max animate-spin-slow items-center justify-center ">
+            <motion.div
+              variants={container}
+              initial="hidden"
+              animate="show"
+              className="hover:pause group relative flex w-max animate-spin-slow items-center justify-center "
+            >
               {btnList.map((btn, index) => {
                 const angleRad = (index * angleIncrement * Math.PI) / 180
                 const radius = isLarge
@@ -31,13 +48,18 @@ export function Navigation() {
 
                 return <NavButton key={btn.label} x={x} y={y} {...btn} />
               })}
-            </div>
+            </motion.div>
           ) : (
-            <div className="group relative flex w-full flex-col items-start justify-start gap-2 pl-5 ">
+            <motion.div
+              variants={container}
+              initial="hidden"
+              animate="show"
+              className="group relative flex w-full flex-col items-start justify-start gap-2 pl-5 "
+            >
               {btnList.map((btn) => {
                 return <NavButton key={btn.label} x={'0'} y={'0'} {...btn} />
               })}
-            </div>
+            </motion.div>
           )
         }
       </Responsive>

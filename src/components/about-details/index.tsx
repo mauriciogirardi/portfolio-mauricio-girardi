@@ -1,10 +1,34 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { ReactNode } from 'react'
+
+import { cn } from '@/lib/utils'
+
 import { Icon } from '../icon'
 import { courses } from './data'
+
+type CardProps = {
+  children: ReactNode
+  className?: string
+}
+
+const Card = ({ children, className }: CardProps) => (
+  <motion.div
+    initial={{ scale: 0 }}
+    whileInView={{ scale: 1 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+    className={cn('custom-bg overflow-hidden rounded-lg p-4', className)}
+  >
+    {children}
+  </motion.div>
+)
 
 export function AboutDetails() {
   return (
     <section className="flex flex-col gap-5 pb-9 lg:flex-row">
-      <div className="custom-bg w-full overflow-hidden rounded-lg p-4 lg:w-3/5">
+      <Card className="w-full lg:w-3/5">
         <h2 className="mb-5 text-2xl font-semibold text-orange-300">
           About me
         </h2>
@@ -37,16 +61,16 @@ export function AboutDetails() {
             project!
           </span>
         </p>
-      </div>
+      </Card>
 
       <div className="w-full space-y-5 lg:w-2/5">
-        <div className="custom-bg overflow-hidden rounded-lg p-4">
+        <Card>
           <p className="flex items-center gap-2 text-left text-3xl font-semibold">
             4+ <sub className="text-base">years of experience</sub>
           </p>
-        </div>
+        </Card>
 
-        <div className="custom-bg overflow-hidden rounded-lg p-4">
+        <Card>
           <h2 className="mb-5 text-2xl font-semibold text-orange-300">
             Courses
           </h2>
@@ -66,7 +90,7 @@ export function AboutDetails() {
               </div>
             ))}
           </div>
-        </div>
+        </Card>
       </div>
     </section>
   )

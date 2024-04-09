@@ -1,9 +1,12 @@
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 
 import { Header } from '@/components/header'
-import { Wizard } from '@/components/models/wizard'
 import { Navigation } from '@/components/navigation'
 import { RenderModel } from '@/components/render-modal'
+const Wizard = dynamic(() => import('@/components/models/wizard'), {
+  ssr: false
+})
 
 export const metadata: Metadata = {
   title: 'Home'
