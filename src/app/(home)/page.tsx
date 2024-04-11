@@ -9,7 +9,9 @@ const Wizard = dynamic(() => import('@/components/models/wizard'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Home'
+  title: 'Home',
+  description:
+    'Explore the portfolio of Mauricio Girardi, a front-end developer passionate about creating engaging and functional digital experiences. Discover projects, skills and expertise in HTML, CSS, JavaScript and more.'
 }
 
 export default function Home() {

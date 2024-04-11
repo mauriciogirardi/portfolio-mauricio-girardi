@@ -13,7 +13,7 @@ export default function ContactPage() {
       <article className="container relative z-20">
         <Header showBtnHome />
 
-        <div className="flex h-[calc(100vh_-_6.5rem)] w-full flex-col items-center justify-center">
+        <div className="flex h-[calc(100vh_-_6.5rem)] w-full animate-opacity flex-col items-center justify-center">
           <div className="flex w-full flex-col items-center justify-center space-y-6 lg:w-3/4">
             <h1 className="text-center text-2xl font-semibold capitalize lg:text-3xl">
               summon the wizard

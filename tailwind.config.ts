@@ -12,7 +12,7 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: '1rem',
+      padding: '2rem',
       screens: {
         '2xl': '1400px'
       }
@@ -71,11 +71,16 @@ const config = {
         'spin-reverse': {
           from: { transform: 'rotate(0deg)' },
           to: { transform: 'rotate(-360deg)' }
+        },
+        opacity: {
+          from: { opacity: '0' },
+          to: { opacity: '1' }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        opacity: 'opacity 0.2s ease-out',
         'spin-slow': 'spin 40s linear infinite',
         'spin-slow-reverse': 'spin-reverse 40s linear infinite'
       },
@@ -93,6 +98,9 @@ const config = {
       boxShadow: {
         'glass-inset': 'inset 0 17px 5px -9px rgba(254,254,91,0.05)',
         'glass-sm': '5px 5px 20px 0px rgba(254,254,91,0.3)'
+      },
+      screens: {
+        xs: '480px'
       }
     }
   },

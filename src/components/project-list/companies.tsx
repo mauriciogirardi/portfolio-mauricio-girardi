@@ -1,8 +1,9 @@
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
+import { CalendarDays } from 'lucide-react'
 
-import { Icon } from '../icon'
 import { projectsCompanies } from './data'
-const container = {
+
+const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -13,17 +14,24 @@ const container = {
   }
 }
 
+const itemAnimation = {
+  hidden: { opacity: 0, y: 100 },
+  show: { opacity: 1, y: 0 }
+}
+
 export function Companies() {
   return (
     <motion.div
       variants={container}
+      transition={{ delay: 0.5 }}
       initial="hidden"
       animate="show"
-      className="my-6 space-y-4"
+      className="my-6 animate-opacity space-y-4"
     >
       {projectsCompanies.map((item) => {
         return (
-          <div
+          <motion.div
+            variants={itemAnimation}
             key={item.company}
             className="custom-bg w-full space-y-4 overflow-hidden rounded-lg p-4 md:max-w-[1000px] md:p-6"
           >
@@ -36,7 +44,7 @@ export function Companies() {
                   {item.company}
                 </p>
                 <p className="flex items-center gap-2 text-sm text-zinc-400 md:text-base">
-                  <Icon name="calendar-days" className="size-4" />
+                  <CalendarDays className="size-4" />
                   {item.period}
                 </p>
               </div>
@@ -64,18 +72,18 @@ export function Companies() {
               <label className="text-sm font-medium text-zinc-400">
                 Skills
               </label>
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="mt-1 flex flex-wrap items-center gap-2">
                 {item.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-nowrap rounded-lg bg-amber-400 px-2 text-xs font-medium text-zinc-900"
+                    className="lg:text-md text-nowrap rounded-lg bg-amber-400 px-2 text-xs font-medium text-zinc-900"
                   >
                     {skill}
                   </span>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         )
       })}
     </motion.div>

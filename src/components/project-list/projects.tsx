@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
+import { Github, Globe } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Icon } from '../icon'
 import { projectsData } from './data'
 
-const container = {
+const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -16,7 +16,7 @@ const container = {
   }
 }
 
-const item = {
+const itemAnimation = {
   hidden: { opacity: 0, y: 100 },
   show: { opacity: 1, y: 0 }
 }
@@ -27,12 +27,12 @@ export function Projects() {
       variants={container}
       initial="hidden"
       animate="show"
-      className="my-6 space-y-4"
+      className="my-6 animate-opacity space-y-4"
     >
       {projectsData.map((project) => {
         return (
           <motion.div
-            variants={item}
+            variants={itemAnimation}
             key={project.id}
             className="custom-bg w-full space-y-4 overflow-hidden rounded-lg p-4 md:max-w-[1000px] md:p-6"
           >
@@ -42,7 +42,7 @@ export function Projects() {
                 alt={project.name}
                 width={500}
                 height={300}
-                className="h-auto w-full animate-pulse rounded-lg object-cover lg:w-1/2"
+                className="h-auto w-full rounded-lg object-cover lg:w-1/2"
               />
 
               <div className="space-y-3">
@@ -60,7 +60,7 @@ export function Projects() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 rounded-full border border-zinc-400 px-3 py-2 text-sm font-medium hover:bg-zinc-400 hover:text-zinc-900"
                   >
-                    <Icon name="github" className="size-4" />
+                    <Github className="size-4" />
                     Github
                   </Link>
                   {project.demoLink && (
@@ -70,7 +70,7 @@ export function Projects() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 rounded-full bg-zinc-600 px-3 py-2 text-sm font-medium hover:bg-zinc-700"
                     >
-                      <Icon name="globe" className="size-4" />
+                      <Globe className="size-4" />
                       Demo
                     </Link>
                   )}
