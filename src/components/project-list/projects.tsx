@@ -43,6 +43,7 @@ export function Projects() {
                 width={500}
                 height={300}
                 className="h-auto w-full rounded-lg object-cover lg:w-1/2"
+                priority
               />
 
               <div className="space-y-3">
