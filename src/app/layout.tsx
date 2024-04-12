@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 
 import { FireFilesBackground } from '@/components/fire-files-background'
+import { Sound } from '@/components/sound'
 import { ThemeProvider } from '@/contexts/theme-provider'
 import { env } from '@/env'
 
@@ -53,6 +54,7 @@ export default function RootLayout({
         >
           {children}
           <FireFilesBackground />
+          <Sound />
         </ThemeProvider>
       </body>
     </html>

@@ -1,5 +1,4 @@
 import { ButtonRounded } from './button-rounded'
-import { Sound } from './sound'
 
 type HeaderProps = {
   showBtnHome?: boolean
@@ -14,7 +13,6 @@ export function Header({ showBtnHome = false }: HeaderProps) {
 
       <div className="flex items-center gap-4">
         {showBtnHome && <ButtonRounded label="Home" link="/" icon="home" />}
-        <Sound />
       </div>
     </header>
   )

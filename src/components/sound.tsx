@@ -16,18 +16,10 @@ import { Button } from './ui/button'
 export function Sound() {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
-
-  const handleToggle = () => {
-    setIsPlaying((prev) => !prev)
-    !isPlaying ? audioRef.current?.play() : audioRef.current?.pause()
-    localStorage.setItem('musicConsent', String(!isPlaying))
-    setIsOpen(false)
-  }
+  const [showModal, setShowModal] = useState(false)
 
   const handleFirstUserInteraction = () => {
     const musicConsent = localStorage.getItem('musicConsent')
-
     if (musicConsent === 'true' && !isPlaying) {
       audioRef.current?.play()
       setIsPlaying(true)
@@ -43,19 +35,28 @@ export function Sound() {
 
     if (consent) {
       setIsPlaying(consent === 'true')
+
       if (consent === 'true') {
         ;['click', 'keydown', 'touchstart'].forEach((event) =>
           document.addEventListener(event, handleFirstUserInteraction)
         )
       }
     } else {
-      setIsOpen(true)
+      setShowModal(true)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const handleToggle = () => {
+    const newState = !isPlaying
+    setIsPlaying(!isPlaying)
+    newState ? audioRef.current?.play() : audioRef.current?.pause()
+    localStorage.setItem('musicConsent', String(newState))
+    setShowModal(false)
+  }
+
   return (
-    <div>
+    <div className="fixed bottom-4 left-3 z-20 lg:bottom-6 lg:left-6">
       <audio loop ref={audioRef}>
         <source src="./birds-forest.mp3" type="audio/mpeg" />
         your browser does not support the audio element.
@@ -68,8 +69,8 @@ export function Sound() {
         icon={isPlaying ? 'volume-2' : 'volume-x'}
       />
 
-      <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-        <AlertDialogContent className="my-2 border-zinc-800 bg-zinc-900">
+      <AlertDialog open={showModal} onOpenChange={setShowModal}>
+        <AlertDialogContent className="my-2 w-80 border-zinc-800 bg-zinc-900">
           <AlertDialogHeader>
             <AlertDialogTitle>Music</AlertDialogTitle>
             <AlertDialogDescription>
@@ -78,14 +79,15 @@ export function Sound() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <Button
-              className="border-zinc-700 bg-transparent text-white hover:bg-zinc-700"
+              className="border-zinc-500 bg-transparent text-white hover:bg-zinc-700"
               size="sm"
-              onClick={() => setIsOpen(false)}
+              onClick={() => setShowModal(false)}
             >
               No
             </Button>
             <Button
               size="sm"
+              onClick={handleToggle}
               className="mb-4 bg-yellow-300 text-black hover:bg-yellow-400 md:mb-0"
             >
               Yes

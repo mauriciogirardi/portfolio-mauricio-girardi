@@ -39,15 +39,24 @@ export function Companies() {
               <label className="text-sm font-medium text-zinc-400">
                 Company
               </label>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col items-start justify-between md:flex-row md:items-center">
                 <p className="text-sm font-medium md:text-base">
                   {item.company}
                 </p>
-                <p className="flex items-center gap-2 text-sm text-zinc-400 md:text-base">
+                <p className="mt-2 flex items-center gap-2 text-sm text-zinc-400 md:mt-0 md:text-base">
                   <CalendarDays className="size-4" />
                   {item.period}
                 </p>
               </div>
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-zinc-400">
+                Position
+              </label>
+              <p className="text-pretty text-sm md:text-base">
+                {item.position}
+              </p>
             </div>
 
             <div>

@@ -20,6 +20,33 @@ export type ProjectsCompanies = {
 
 export const projectsCompanies: ProjectsCompanies[] = [
   {
+    id: 4,
+    position: 'FullStack Developer',
+    company: 'Evoke It',
+    type: 'On-site',
+    period: 'Abr 2024 ',
+    responsible:
+      'Create new features in the system,create unit test, code review and bug fix,',
+    description:
+      'create innovative and technological communication solutions that are able to stimulate behaviors and expressions. Our projects evoke sensations, arouse true emotions and call for engagement with target audiences.',
+    skills: [
+      'Vite.js',
+      'Javascript',
+      'Typescript',
+      'Jest',
+      'React-test-library',
+      'Storybook',
+      'Redux',
+      'Prisma',
+      'MariaDB',
+      'Scrum',
+      'Jira',
+      'Node.js',
+      'Styled-components',
+      'Express'
+    ]
+  },
+  {
     id: 0,
     position: 'Front-end Developer',
     company: 'Bliss Applications',
@@ -118,7 +145,7 @@ export const projectsCompanies: ProjectsCompanies[] = [
   },
   {
     id: 3,
-    position: 'Front-end Developer',
+    position: 'Intership Front-end Developer',
     company: 'Bom',
     type: 'On-site',
     description:
