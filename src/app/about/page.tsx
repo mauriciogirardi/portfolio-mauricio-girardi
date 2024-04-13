@@ -22,7 +22,7 @@ export default async function AboutPage() {
         <div className="relative">
           <Header showBtnHome />
 
-          <div className="xs:h-3/5 absolute left-0 top-1/2 z-10 h-3/5 w-full -translate-y-1/2 sm:h-screen">
+          <div className="absolute left-0 top-1/2 z-10 h-3/4 w-full -translate-y-1/2 xs:h-3/5 sm:h-screen">
             <RenderModel>
               <Hat />
             </RenderModel>

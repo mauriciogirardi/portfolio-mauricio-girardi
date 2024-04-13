@@ -81,7 +81,7 @@
   }
 
   .custom-bg {
-    @apply border border-solid border-amber-300/40 bg-background/20 shadow-glass-inset backdrop-blur-[6px] hover:shadow-glass-sm;
+    @apply border border-solid border-amber-300/40 bg-background/20 shadow-glass-sm backdrop-blur-[6px] md:shadow-glass-inset  md:hover:shadow-glass-sm;
   }
 
   .light-text {
