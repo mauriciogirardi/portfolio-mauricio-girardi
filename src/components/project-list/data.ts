@@ -190,5 +190,14 @@ export const projectsData: ProjectDataType[] = [
     img: '/projects/go-barber.png',
     description:
       'Application to schedule and manage beauty services, where service providers can register, and users can schedule appointments with these providers.'
+  },
+  {
+    id: 4,
+    linkGithub: 'https://github.com/mauriciogirardi/chat',
+    demoLink: 'https://chat-girardi.vercel.app/sign-in',
+    name: 'Chat',
+    img: '/projects/chat.png',
+    description:
+      'The project was also created with the aim of practicing the implementation of Socket.io, improving skills and understanding of communication technologies in real time. Create a real-time communication platform, offering a variety of features and functionalities for users. CLERK authentication is implemented to ensure security in the user registration and login process. Upon logging in, users have access to a list of all registered users in the application, enabling them to initiate individual or group conversations. Users have the ability to customize their profiles, including adding profile pictures, creating and editing groups. They can view the count of unread messages in their chat list, making it easier to prioritize conversations. The integration of Socket.io provides a real-time chat experience, allowing for immediate sending and receiving of messages. Additionally, the system includes advanced features such as typing animation to indicate when a user is typing a message, and read receipts to indicate when messages have been read by the recipient. These combined features offer a robust and dynamic platform for communication and collaboration among users.'
   }
 ]
