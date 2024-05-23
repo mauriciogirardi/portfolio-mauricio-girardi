@@ -2,6 +2,7 @@ import './globals.css'
 
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
+import Head from 'next/head'
 
 import { FireFilesBackground } from '@/components/fire-files-background'
 import { Sound } from '@/components/sound'
@@ -45,6 +46,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={poppins.variable} suppressHydrationWarning>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <body className="min-h-screen bg-black antialiased">
         <ThemeProvider
           attribute="class"
