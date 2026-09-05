@@ -1,44 +1,47 @@
-'use client'
+"use client";
 
-import { Menu, X } from 'lucide-react'
-import { useEffect, useState } from 'react'
-import { ThemeToggle } from './theme-toggle'
+import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ThemeToggle } from "./theme-toggle";
 
 const LINKS = [
-  { href: '#sobre', label: 'Sobre' },
-  { href: '#stack', label: 'Stack' },
-  { href: '#projetos', label: 'Projetos' },
-  { href: '#experiencia', label: 'Experiência' },
-  { href: '#contato', label: 'Contato' },
-  { href: '/cv', label: 'CV' },
-]
+  { href: "#sobre", label: "Sobre" },
+  { href: "#stack", label: "Stack" },
+  { href: "#projetos", label: "Projetos" },
+  { href: "#experiencia", label: "Experiência" },
+  { href: "#contato", label: "Contato" },
+  { href: "/cv", label: "CV" },
+];
 
 export function Navbar() {
-  const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     function onScroll() {
-      setScrolled(window.scrollY > 8)
+      setScrolled(window.scrollY > 8);
     }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
         className={`mx-auto mt-4 flex max-w-5xl items-center justify-between rounded-full border px-5 py-3 backdrop-blur-xl transition-colors duration-300 sm:px-6 ${
           scrolled
-            ? 'border-card-border bg-background/90 shadow-lg shadow-black/10'
-            : 'border-card-border bg-card'
+            ? "border-card-border bg-background/40 shadow-lg shadow-black/10"
+            : "border-card-border bg-card"
         }`}
       >
-        <a href="#top" className="font-mono text-sm font-semibold tracking-tight">
-          <span className="text-primary">{'<'}</span>
+        <a
+          href="#top"
+          className="font-mono text-sm font-semibold tracking-tight"
+        >
+          <span className="text-primary">{"<"}</span>
           Mauricio
-          <span className="text-secondary">{' />'}</span>
+          <span className="text-secondary">{" />"}</span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -87,5 +90,5 @@ export function Navbar() {
         </div>
       )}
     </header>
-  )
+  );
 }

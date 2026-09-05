@@ -1,5 +1,5 @@
-import { ArrowRight, Mail } from 'lucide-react'
-import { GithubIcon, LinkedinIcon } from './icons'
+import { ArrowRight, Mail } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "./icons";
 
 export function Hero() {
   return (
@@ -22,12 +22,13 @@ export function Hero() {
         </h1>
 
         <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-          Sou <span className="text-foreground">Mauricio Girardi</span>, desenvolvedor front-end
-          sênior. Construo interfaces web robustas com{' '}
-          <span className="text-foreground">React</span>,{' '}
-          <span className="text-foreground">Next.js</span> e{' '}
-          <span className="text-foreground">TypeScript</span> — de design systems a aplicações
-          complexas, com foco em performance, acessibilidade e DX.
+          Sou <span className="text-foreground">Mauricio Girardi</span>,
+          desenvolvedor front-end sênior. Construo interfaces web robustas com{" "}
+          <span className="text-foreground">React</span>,{" "}
+          <span className="text-foreground">Next.js</span> e{" "}
+          <span className="text-foreground">TypeScript</span> — de design
+          systems a aplicações complexas, com foco em performance,
+          acessibilidade e DX.
         </p>
 
         <div className="flex flex-wrap items-center gap-4">
@@ -74,12 +75,12 @@ export function Hero() {
           </div>
         </div>
 
-        <dl className="mt-6 grid max-w-xl grid-cols-3 gap-6 border-t border-border pt-6">
+        <dl className="mt-6 grid max-w-xl grid-cols-1 md:grid-cols-3 gap-6 border-t border-border pt-6">
           <div>
             <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
               Experiência
             </dt>
-            <dd className="mt-1 text-2xl font-semibold">6+ anos</dd>
+            <dd className="mt-1 text-2xl font-semibold">7+ anos</dd>
           </div>
           <div>
             <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
@@ -91,10 +92,12 @@ export function Hero() {
             <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
               Stack
             </dt>
-            <dd className="mt-1 text-2xl font-semibold">React / Next.js</dd>
+            <dd className="mt-1 text-2xl font-semibold">
+              React / Next.js / Node.js
+            </dd>
           </div>
         </dl>
       </div>
     </section>
-  )
+  );
 }

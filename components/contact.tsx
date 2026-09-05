@@ -1,52 +1,57 @@
-import { ArrowUpRight, Mail, Phone } from 'lucide-react'
-import { GithubIcon, LinkedinIcon } from './icons'
-import { SectionHeading } from './section-heading'
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "./icons";
+import { SectionHeading } from "./section-heading";
 
 const CHANNELS = [
   {
     icon: Mail,
-    label: 'E-mail',
-    value: 'devmauriciogirardi@gmail.com',
-    href: 'mailto:devmauriciogirardi@gmail.com',
+    label: "E-mail",
+    value: "devmauriciogirardi@gmail.com",
+    href: "mailto:devmauriciogirardi@gmail.com",
   },
   {
     icon: Phone,
-    label: 'Telefone',
-    value: '+351 910 789 181',
-    href: 'tel:+351910789181',
+    label: "Telefone",
+    value: "+351 910 789 181",
+    href: "tel:+351910789181",
   },
   {
     icon: LinkedinIcon,
-    label: 'LinkedIn',
-    value: 'linkedin.com/in/mauricio-girardi',
-    href: 'https://www.linkedin.com/in/mauricio-girardi/',
+    label: "LinkedIn",
+    value: "linkedin.com/in/mauricio-girardi",
+    href: "https://www.linkedin.com/in/mauricio-girardi/",
   },
   {
     icon: GithubIcon,
-    label: 'GitHub',
-    value: 'github.com/mauriciogirardi',
-    href: 'https://github.com/mauriciogirardi',
+    label: "GitHub",
+    value: "github.com/mauriciogirardi",
+    href: "https://github.com/mauriciogirardi",
   },
-]
+];
 
 export function Contact() {
   return (
     <section id="contato" className="relative py-28">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading index="05" label="Próximo passo" title="Vamos construir algo juntos?" />
+        <SectionHeading
+          index="05"
+          label="Próximo passo"
+          title="Vamos construir algo juntos?"
+        />
 
-        <div className="glass relative overflow-hidden rounded-3xl p-10 sm:p-14">
+        <div className="glass relative overflow-hidden rounded-3xl p-4 sm:p-14">
           <div
             className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full blur-[100px]"
-            style={{ background: 'var(--glow-a)' }}
+            style={{ background: "var(--glow-a)" }}
           />
           <div className="relative">
             <h3 className="max-w-xl text-2xl font-semibold leading-tight sm:text-3xl">
-              Disponível para novos projetos, posições full-time e consultorias técnicas.
+              Disponível para novos projetos, posições full-time e consultorias
+              técnicas.
             </h3>
             <p className="mt-3 max-w-xl text-muted-foreground">
-              Me chame diretamente por e-mail ou pelas redes abaixo — normalmente respondo em até 1
-              dia útil.
+              Me chame diretamente por e-mail ou pelas redes abaixo —
+              normalmente respondo em até 1 dia útil.
             </p>
 
             <a
@@ -62,8 +67,10 @@ export function Contact() {
                 <a
                   key={label}
                   href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    href.startsWith("http") ? "noopener noreferrer" : undefined
+                  }
                   className="flex items-center gap-3 rounded-xl border border-transparent p-2 transition-colors hover:border-card-border"
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -82,5 +89,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
