@@ -1,18 +1,16 @@
+'use client'
+
 import Image from 'next/image'
+import { useTranslations } from '@/lib/i18n/language-context'
 import { SectionHeading } from './section-heading'
 
-const HIGHLIGHTS = [
-  'Arquitetura de aplicações React e Next.js escaláveis e de fácil manutenção',
-  'Design systems consistentes e acessíveis, usados por múltiplos times de produto',
-  'Cultura de testes automatizados, CI/CD e code review',
-  'Liderança técnica e mentoria de desenvolvedores pleno/júnior',
-]
-
 export function About() {
+  const { t } = useTranslations()
+
   return (
     <section id="sobre" className="relative py-28">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading index="01" label="Quem sou eu" title="Sobre mim" />
+        <SectionHeading index="01" label={t.about.headingLabel} title={t.about.headingTitle} />
 
         <div className="grid gap-10 lg:grid-cols-[220px_1fr] lg:items-start">
           <div className="relative mx-auto h-44 w-44 lg:mx-0">
@@ -30,22 +28,14 @@ export function About() {
 
           <div>
             <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-              Sou desenvolvedor front-end sênior com mais de 6 anos de experiência construindo
-              interfaces para sistemas bancários, e-commerce de luxo e software de análise usado por
-              organizações governamentais. Trabalho principalmente com{' '}
-              <span className="text-foreground">React</span>,{' '}
-              <span className="text-foreground">Next.js</span> e{' '}
-              <span className="text-foreground">TypeScript</span>, cobrindo desde a arquitetura de
-              componentes até testes e deploy.
+              {t.about.paragraph1}
             </p>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
-              Recentemente liderei tecnicamente o front-end de um sistema bancário na ITSector, onde
-              também fui responsável pelo design system do produto. Gosto de código limpo,
-              acessibilidade e decisões orientadas por dados e experiência do usuário.
+              {t.about.paragraph2}
             </p>
 
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-              {HIGHLIGHTS.map((item) => (
+              {t.about.highlights.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                   {item}

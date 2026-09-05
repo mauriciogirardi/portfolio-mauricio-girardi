@@ -2,6 +2,7 @@
 
 import { Moon, Sun } from 'lucide-react'
 import { useLayoutEffect, useState } from 'react'
+import { useTranslations } from '@/lib/i18n/language-context'
 
 function readTheme() {
   if (typeof document === 'undefined') return 'dark'
@@ -16,6 +17,7 @@ function applyTheme(theme: string) {
 }
 
 export function ThemeToggle() {
+  const { t } = useTranslations()
   const [theme, setTheme] = useState<string | null>(null)
 
   useLayoutEffect(() => {
@@ -34,7 +36,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      aria-label="Alternar tema claro e escuro"
+      aria-label={t.themeToggle}
       className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-card-border bg-card transition-colors hover:border-primary/50"
     >
       <Sun
