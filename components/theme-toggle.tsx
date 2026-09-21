@@ -2,7 +2,6 @@
 
 import { Moon, Sun } from 'lucide-react'
 import { useLayoutEffect, useState } from 'react'
-import { useTranslations } from '@/lib/i18n/language-context'
 
 function readTheme() {
   if (typeof document === 'undefined') return 'dark'
@@ -16,8 +15,7 @@ function applyTheme(theme: string) {
   document.cookie = `theme=${encodeURIComponent(theme)}; path=/; max-age=31536000; SameSite=Lax`
 }
 
-export function ThemeToggle() {
-  const { t } = useTranslations()
+export function ThemeToggle({ label }: { label: string }) {
   const [theme, setTheme] = useState<string | null>(null)
 
   useLayoutEffect(() => {
@@ -36,7 +34,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      aria-label={t.themeToggle}
+      aria-label={label}
       className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-card-border bg-card transition-colors hover:border-primary/50"
     >
       <Sun

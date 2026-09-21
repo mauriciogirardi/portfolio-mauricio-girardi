@@ -1,7 +1,5 @@
-'use client'
-
 import { ArrowUpRight, Mail, Phone } from 'lucide-react'
-import { useTranslations } from '@/lib/i18n/language-context'
+import type { Translations } from '@/lib/i18n/translations'
 import { GithubIcon, LinkedinIcon } from './icons'
 import { SectionHeading } from './section-heading'
 
@@ -28,13 +26,11 @@ const CHANNELS = [
   },
 ]
 
-export function Contact() {
-  const { t } = useTranslations()
-
+export function Contact({ t }: { t: Translations['contact'] }) {
   return (
     <section id="contato" className="relative py-28">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading index="05" label={t.contact.headingLabel} title={t.contact.headingTitle} />
+        <SectionHeading index="05" label={t.headingLabel} title={t.headingTitle} />
 
         <div className="glass relative overflow-hidden rounded-3xl p-4 sm:p-14">
           <div
@@ -43,15 +39,15 @@ export function Contact() {
           />
           <div className="relative">
             <h3 className="max-w-xl text-2xl font-semibold leading-tight sm:text-3xl">
-              {t.contact.heading2}
+              {t.heading2}
             </h3>
-            <p className="mt-3 max-w-xl text-muted-foreground">{t.contact.paragraph}</p>
+            <p className="mt-3 max-w-xl text-muted-foreground">{t.paragraph}</p>
 
             <a
               href="mailto:devmauriciogirardi@gmail.com"
               className="group mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5"
             >
-              {t.contact.cta}
+              {t.cta}
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </a>
 
@@ -69,7 +65,7 @@ export function Contact() {
                   </span>
                   <span className="min-w-0">
                     <span className="block font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                      {t.contact.channelLabels[index]}
+                      {t.channelLabels[index]}
                     </span>
                     <span className="block truncate text-sm">{value}</span>
                   </span>

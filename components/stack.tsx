@@ -1,21 +1,17 @@
-'use client'
-
 import { Blocks, Gauge, Palette, TestTube } from 'lucide-react'
-import { useTranslations } from '@/lib/i18n/language-context'
+import type { Translations } from '@/lib/i18n/translations'
 import { SectionHeading } from './section-heading'
 
 const ICONS = [Blocks, Palette, Gauge, TestTube]
 
-export function Stack() {
-  const { t } = useTranslations()
-
+export function Stack({ t }: { t: Translations['stack'] }) {
   return (
     <section id="stack" className="relative py-28">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading index="02" label={t.stack.headingLabel} title={t.stack.headingTitle} />
+        <SectionHeading index="02" label={t.headingLabel} title={t.headingTitle} />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {t.stack.groups.map(({ title, items }, index) => {
+          {t.groups.map(({ title, items }, index) => {
             const Icon = ICONS[index]
             return (
               <div
