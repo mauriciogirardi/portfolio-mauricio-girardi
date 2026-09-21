@@ -4,6 +4,7 @@ import { useTranslations } from '@/lib/i18n/language-context'
 import { SectionHeading } from './section-heading'
 
 const COMPANIES = [
+  'KuantoKusta',
   'ITSector',
   'EVOKE IT — Innovation Studio',
   'Tagcoders — Software Development Company',

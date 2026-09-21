@@ -137,6 +137,14 @@ const pt = {
     headingTitle: 'Experiência profissional',
     roles: [
       {
+        period: 'Set 2026 — Atual',
+        duration: '< 1 mês',
+        role: 'Frontend Developer',
+        meta: 'Full-time · Porto, Portugal · Remoto / Híbrido',
+        description:
+          'Atuo no desenvolvimento de plataformas de e-commerce com Next.js, com foco em SEO técnico, Web Vitals e performance. Responsável por construir interfaces responsivas e acessíveis, seguindo boas práticas de acessibilidade. Escrevo testes automatizados para garantir a qualidade do código e exploro a aplicação de IAs para otimizar processos de desenvolvimento e a experiência do usuário.',
+      },
+      {
         period: 'Mai 2024 — Set 2026',
         duration: '2 anos e 4 meses',
         role: 'Frontend Developer',
@@ -222,6 +230,17 @@ const pt = {
     profileText:
       'Desenvolvedor Front-end apaixonado e dedicado, com sólida experiência na criação de experiências digitais envolventes e eficientes. Especializado em ReactJS, Next.js, Node.js e React Native, com atenção aos detalhes, usabilidade e acessibilidade. Confortável em equipes colaborativas e sempre em busca de desafios que impulsionem o crescimento e a inovação. Aberto a novos projetos e colaborações profissionais.',
     experience: [
+      {
+        role: 'Desenvolvedor Front-end',
+        location: 'Porto, Portugal',
+        period: 'Set 2026 — Atual',
+        bullets: [
+          'Desenvolve plataformas de e-commerce utilizando Next.js, com foco em SEO técnico e Web Vitals.',
+          'Constrói interfaces responsivas e acessíveis seguindo boas práticas de acessibilidade.',
+          'Escreve testes automatizados para garantir a qualidade e a confiabilidade do código.',
+          'Explora a aplicação de IAs para otimizar fluxos de desenvolvimento e experiência do usuário.',
+        ],
+      },
       {
         role: 'Desenvolvedor Front-end',
         location: 'Aveiro, Portugal',
@@ -451,6 +470,14 @@ const en: typeof pt = {
     headingTitle: 'Professional experience',
     roles: [
       {
+        period: 'Sep 2026 — Present',
+        duration: '< 1 month',
+        role: 'Frontend Developer',
+        meta: 'Full-time · Porto, Portugal · Remote / Hybrid',
+        description:
+          'I work on the development of e-commerce platforms with Next.js, focusing on technical SEO, Web Vitals and performance. Responsible for building responsive and accessible interfaces following accessibility best practices. I write automated tests to ensure code quality and explore the use of AI to optimize development workflows and user experience.',
+      },
+      {
         period: 'May 2024 — Sep 2026',
         duration: '2 years and 4 months',
         role: 'Frontend Developer',
@@ -536,6 +563,17 @@ const en: typeof pt = {
     profileText:
       'Passionate and dedicated Front-end Developer with solid experience building engaging, efficient digital experiences. Specialized in ReactJS, Next.js, Node.js and React Native, with strong attention to detail, usability and accessibility. Comfortable in collaborative teams and always looking for challenges that drive growth and innovation. Open to new projects and professional collaborations.',
     experience: [
+      {
+        role: 'Front-end Developer',
+        location: 'Porto, Portugal',
+        period: 'Sep 2026 — Present',
+        bullets: [
+          'Develops e-commerce platforms using Next.js, focused on technical SEO and Web Vitals.',
+          'Builds responsive and accessible interfaces following accessibility best practices.',
+          'Writes automated tests to ensure code quality and reliability.',
+          'Explores AI applications to optimize development workflows and user experience.',
+        ],
+      },
       {
         role: 'Front-end Developer',
         location: 'Aveiro, Portugal',
