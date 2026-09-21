@@ -1,11 +1,9 @@
-'use client'
-
 import { ArrowLeftIcon, Mail, MapPin, Phone } from 'lucide-react'
 import Link from 'next/link'
 import { GithubIcon, LinkedinIcon } from '@/components/icons'
 import { LanguageToggle } from '@/components/language-toggle'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { useTranslations } from '@/lib/i18n/language-context'
+import type { Language, Translations } from '@/lib/i18n/translations'
 import { CvHeading } from './cv-heading'
 import { PrintButton } from './print-button'
 
@@ -19,9 +17,7 @@ const EXPERIENCE_COMPANIES = [
   'Bom',
 ]
 
-export function CvContent() {
-  const { t } = useTranslations()
-
+export function CvContent({ t, language }: { t: Translations; language: Language }) {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="no-print sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
@@ -34,9 +30,9 @@ export function CvContent() {
             <span className="hidden md:flex">{t.cv.backToPortfolio}</span>
           </Link>
           <div className="flex items-center gap-3">
-            <LanguageToggle />
-            <ThemeToggle />
-            <PrintButton />
+            <LanguageToggle label={t.languageToggle} language={language} />
+            <ThemeToggle label={t.themeToggle} />
+            <PrintButton label={t.cv.printButton} />
           </div>
         </div>
       </div>

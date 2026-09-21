@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
-import type { Language } from './language-context'
+
+export type Language = 'pt' | 'en'
 
 function Highlight({ children }: { children: ReactNode }) {
   return <span className="text-foreground">{children}</span>
@@ -17,9 +18,12 @@ const pt = {
     ],
     cta: 'Vamos conversar',
     openMenu: 'Abrir menu',
+    closeMenu: 'Fechar menu',
+    ariaLabel: 'Navegação principal',
   },
   themeToggle: 'Alternar tema claro e escuro',
   languageToggle: 'Alternar idioma',
+  skipToContent: 'Pular para o conteúdo',
   hero: {
     availability: 'Disponível para novos projetos',
     titleLine1: 'Eu crio interfaces',
@@ -105,30 +109,43 @@ const pt = {
     headingTitle: 'Projetos selecionados',
     ndaLabel: 'NDA',
     ndaTitle: 'Projeto corporativo — código sob confidencialidade',
+    repoLabel: 'Código aberto',
+    repoTitle: 'Ver repositório no GitHub',
     items: [
+      {
+        title: 'Case Study — Este Portfólio (Open Source)',
+        description:
+          'Reescrevi a resolução de idioma para rodar no servidor (React Server Components) em vez de Context no cliente, reduzindo o JS enviado na home de ~187KB para ~176KB (gzip, medido com next build). Também adicionei suíte de testes com Vitest/Testing Library, pipeline de CI no GitHub Actions (lint, typecheck, testes e build) e ajustes de acessibilidade (skip link, aria-expanded no menu mobile, navegação por teclado).',
+        tags: ['Next.js', 'React Server Components', 'Vitest', 'CI/CD', 'Acessibilidade'],
+        repoUrl: 'https://github.com/mauriciogirardi/portfolio-mauricio-girardi',
+      },
       {
         title: 'Design System — Sistema Bancário',
         description:
           'Criação e evolução do design system de uma aplicação bancária, garantindo consistência visual e escalabilidade. Desenvolvi o formulário de questionário de investimentos, com foco em usabilidade e validação de dados.',
         tags: ['React', 'Next.js', 'TypeScript', 'Design System'],
+        repoUrl: undefined,
       },
       {
         title: 'E-commerce de Luxo',
         description:
           'Novas funcionalidades a partir do design, testes unitários, code review e correção de bugs para uma plataforma de e-commerce de alto padrão.',
         tags: ['React', 'Testes Unitários', 'Code Review', 'QA'],
+        repoUrl: undefined,
       },
       {
         title: 'Software de Análise Investigativa',
         description:
           'Novas funcionalidades para um software utilizado por organizações governamentais, com foco em qualidade, code review e mentoria de novos desenvolvedores no time.',
         tags: ['React', 'Code Review', 'Mentoria'],
+        repoUrl: undefined,
       },
       {
         title: 'Sistema de Gestão de Frotas',
         description:
           'Funcionalidades para monitoramento de frota em tempo real, telemetria e visão computacional, com foco em qualidade e performance.',
         tags: ['React', 'Real-time', 'Performance'],
+        repoUrl: undefined,
       },
     ],
   },
@@ -350,9 +367,12 @@ const en: typeof pt = {
     ],
     cta: "Let's talk",
     openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    ariaLabel: 'Main navigation',
   },
   themeToggle: 'Toggle light and dark theme',
   languageToggle: 'Switch language',
+  skipToContent: 'Skip to content',
   hero: {
     availability: 'Available for new projects',
     titleLine1: 'I build interfaces',
@@ -438,30 +458,43 @@ const en: typeof pt = {
     headingTitle: 'Selected projects',
     ndaLabel: 'NDA',
     ndaTitle: 'Corporate project — code under NDA',
+    repoLabel: 'Open source',
+    repoTitle: 'View repository on GitHub',
     items: [
+      {
+        title: 'Case Study — This Portfolio (Open Source)',
+        description:
+          'Rewrote language resolution to run on the server (React Server Components) instead of client-side Context, cutting the JS shipped on the homepage from ~187KB to ~176KB (gzip, measured with next build). Also added a Vitest/Testing Library test suite, a GitHub Actions CI pipeline (lint, typecheck, tests and build) and accessibility fixes (skip link, aria-expanded on the mobile menu, keyboard navigation).',
+        tags: ['Next.js', 'React Server Components', 'Vitest', 'CI/CD', 'Accessibility'],
+        repoUrl: 'https://github.com/mauriciogirardi/portfolio-mauricio-girardi',
+      },
       {
         title: 'Design System — Banking System',
         description:
           'Creation and evolution of the design system for a banking application, ensuring visual consistency and scalability. I built the investment questionnaire form, focused on usability and data validation.',
         tags: ['React', 'Next.js', 'TypeScript', 'Design System'],
+        repoUrl: undefined,
       },
       {
         title: 'Luxury E-commerce',
         description:
           'New features built from design specs, unit tests, code review and bug fixes for a high-end e-commerce platform.',
         tags: ['React', 'Unit Tests', 'Code Review', 'QA'],
+        repoUrl: undefined,
       },
       {
         title: 'Investigative Analysis Software',
         description:
           'New features for software used by government organizations, focused on quality, code review and mentoring new developers on the team.',
         tags: ['React', 'Code Review', 'Mentorship'],
+        repoUrl: undefined,
       },
       {
         title: 'Fleet Management System',
         description:
           'Features for real-time fleet monitoring, telemetry and computer vision, focused on quality and performance.',
         tags: ['React', 'Real-time', 'Performance'],
+        repoUrl: undefined,
       },
     ],
   },
@@ -672,3 +705,5 @@ const en: typeof pt = {
 }
 
 export const translations: Record<Language, typeof pt> = { pt, en }
+
+export type Translations = typeof pt

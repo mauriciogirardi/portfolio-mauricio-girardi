@@ -1,16 +1,12 @@
-'use client'
-
 import Image from 'next/image'
-import { useTranslations } from '@/lib/i18n/language-context'
+import type { Translations } from '@/lib/i18n/translations'
 import { SectionHeading } from './section-heading'
 
-export function About() {
-  const { t } = useTranslations()
-
+export function About({ t }: { t: Translations['about'] }) {
   return (
     <section id="sobre" className="relative py-28">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading index="01" label={t.about.headingLabel} title={t.about.headingTitle} />
+        <SectionHeading index="01" label={t.headingLabel} title={t.headingTitle} />
 
         <div className="grid gap-10 lg:grid-cols-[220px_1fr] lg:items-start">
           <div className="relative mx-auto h-44 w-44 lg:mx-0">
@@ -27,15 +23,13 @@ export function About() {
           </div>
 
           <div>
-            <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-              {t.about.paragraph1}
-            </p>
+            <p className="max-w-2xl text-base leading-7 text-muted-foreground">{t.paragraph1}</p>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
-              {t.about.paragraph2}
+              {t.paragraph2}
             </p>
 
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-              {t.about.highlights.map((item) => (
+              {t.highlights.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                   {item}

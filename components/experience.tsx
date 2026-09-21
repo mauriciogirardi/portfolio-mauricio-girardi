@@ -1,6 +1,4 @@
-'use client'
-
-import { useTranslations } from '@/lib/i18n/language-context'
+import type { Translations } from '@/lib/i18n/translations'
 import { SectionHeading } from './section-heading'
 
 const COMPANIES = [
@@ -14,20 +12,14 @@ const COMPANIES = [
   'BOM',
 ]
 
-export function Experience() {
-  const { t } = useTranslations()
-
+export function Experience({ t }: { t: Translations['experience'] }) {
   return (
     <section id="experiencia" className="relative py-28">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading
-          index="04"
-          label={t.experience.headingLabel}
-          title={t.experience.headingTitle}
-        />
+        <SectionHeading index="04" label={t.headingLabel} title={t.headingTitle} />
 
         <div className="relative ml-3 space-y-10 border-l border-border pl-8">
-          {t.experience.roles.map((item, index) => (
+          {t.roles.map((item, index) => (
             <div key={`${COMPANIES[index]}-${item.period}`} className="relative">
               <span className="absolute -left-9.25 top-1.5 h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_0_4px_var(--glow-a)]" />
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">

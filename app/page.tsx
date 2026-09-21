@@ -7,6 +7,8 @@ import { Hero } from '@/components/hero'
 import { Navbar } from '@/components/navbar'
 import { Projects } from '@/components/projects'
 import { Stack } from '@/components/stack'
+import { getLanguage } from '@/lib/i18n/get-language'
+import { translations } from '@/lib/i18n/translations'
 import { SITE_URL } from '@/lib/site'
 
 const PERSON_JSON_LD = {
@@ -20,7 +22,10 @@ const PERSON_JSON_LD = {
   sameAs: ['https://github.com/mauriciogirardi', 'https://www.linkedin.com/in/mauricio-girardi/'],
 }
 
-export default function Home() {
+export default async function Home() {
+  const language = await getLanguage()
+  const t = translations[language]
+
   return (
     <div className="relative flex flex-1 flex-col overflow-x-hidden">
       <script
@@ -29,16 +34,27 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }}
       />
       <BackgroundGrid />
-      <Navbar />
-      <main className="flex-1">
-        <Hero />
-        <About />
-        <Stack />
-        <Projects />
-        <Experience />
-        <Contact />
+      <a
+        href="#main-content"
+        className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform focus-visible:translate-y-0"
+      >
+        {t.skipToContent}
+      </a>
+      <Navbar
+        nav={t.nav}
+        languageToggleLabel={t.languageToggle}
+        themeToggleLabel={t.themeToggle}
+        language={language}
+      />
+      <main id="main-content" className="flex-1">
+        <Hero t={t.hero} />
+        <About t={t.about} />
+        <Stack t={t.stack} />
+        <Projects t={t.projects} />
+        <Experience t={t.experience} />
+        <Contact t={t.contact} />
       </main>
-      <Footer />
+      <Footer t={t.footer} />
     </div>
   )
 }

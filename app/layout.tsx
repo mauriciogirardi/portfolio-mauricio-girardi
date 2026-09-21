@@ -1,7 +1,7 @@
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { LanguageProvider } from '@/lib/i18n/language-context'
+import { getLanguage } from '@/lib/i18n/get-language'
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/site'
 import './globals.css'
 
@@ -60,12 +60,13 @@ export const metadata: Metadata = {
 }
 
 const THEME_INIT_SCRIPT = `(function(){try{var m=document.cookie.match(/(?:^|; )theme=([^;]*)/);var t=m?decodeURIComponent(m[1]):null;if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`
-const LANG_INIT_SCRIPT = `(function(){try{var m=document.cookie.match(/(?:^|; )lang=([^;]*)/);var l=m&&decodeURIComponent(m[1])==="en"?"en":"pt-BR";document.documentElement.lang=l}catch(e){}})()`
 
-export default function RootLayout({ children }: LayoutProps<'/'>) {
+export default async function RootLayout({ children }: LayoutProps<'/'>) {
+  const language = await getLanguage()
+
   return (
     <html
-      lang="pt-BR"
+      lang={language === 'en' ? 'en' : 'pt-BR'}
       data-theme="dark"
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
@@ -73,17 +74,13 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       <head>
         {/* biome-ignore lint/security/noDangerouslySetInnerHtml: inline script must run synchronously before first paint to set the theme and avoid a flash */}
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
-        {/* biome-ignore lint/security/noDangerouslySetInnerHtml: inline script must run synchronously to sync the html lang attribute with the persisted language */}
-        <script dangerouslySetInnerHTML={{ __html: LANG_INIT_SCRIPT }} />
       </head>
       <body
         className="min-h-full flex flex-col bg-background text-foreground"
         suppressHydrationWarning
       >
-        <LanguageProvider>
-          {children}
-          <SpeedInsights />
-        </LanguageProvider>
+        {children}
+        <SpeedInsights />
       </body>
     </html>
   )
