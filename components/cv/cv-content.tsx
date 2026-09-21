@@ -10,6 +10,7 @@ import { CvHeading } from './cv-heading'
 import { PrintButton } from './print-button'
 
 const EXPERIENCE_COMPANIES = [
+  'KuantoKusta',
   'ItSector',
   'Tagcodes',
   'Bliss Applications',
